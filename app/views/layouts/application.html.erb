@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>Bookers</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
+        <ul class="navbar-nav ml-auto">
+          <% if user_signed_in? %>
+          <li class="navitem">
+            <%= link_to user_path(current_user.id) do %>
+             <p id="navitem"><i class="fas fa-home"> Home</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to users_path do %>
+            <p id="navitem"><i class="fas fa-users"> Users</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to books_path do %>
+            <p id="navitem"><i class="fas fa-book-open"> Books</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <p id="navitem"><i class="fas fa-sign-out-alt"> Logout</i></p>
+            <% end %>
+          </li>
+
+
+          <% else %>
+          <li class="navitem">
+            <%= link_to root_path do %>
+             <p id="navitem"><i class="fas fa-home"> Home</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to home_about_path do %>
+             <p id="navitem"><i class="fas fa-link"> About</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to new_user_registration_path do %>
+             <p id="navitem"><i class="fas fa-user-plus"> sign up</i></p>
+            <% end %>
+          </li>
+          <li class="navitem">
+            <%= link_to new_user_session_path do %>
+             <p id="navitem"><i class="fas fa-sign-in-alt"> login</i></p>
+            <% end %>
+          </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</header>
+<main class="mb-auto">
+  <p id="notice"><%= notice %></p>
+    <%= yield %>
+</main>
+<footer>
+  <div class="container mt-5"><!--48行目のフォントサイズの 3倍のmargin-topが設定される-->
+  	<div class="row">
+    	<div class="mx-auto"><!--margin-leftとrightがauto＝中央寄せ-->
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
+  </body>
+</html>

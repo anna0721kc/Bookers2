@@ -1,0 +1,42 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+div {
+  display: block;
+}
+.col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+tbody {
+  border-top: 1px solid #dee2e6;
+}
+.row {
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.create-btn {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+label {
+  width: 140px;
+  text-align: left;
+}
